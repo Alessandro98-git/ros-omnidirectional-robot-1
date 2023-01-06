@@ -1,5 +1,10 @@
-# Omnidirectional Robot Odometry
+# Omnidirectional Robot Odometry and black-box Optimization
 Omnidirectional 4-wheels mobile robot odometry implementation in ROS (C++) as "Robotics" course project 2022, Politecnico di Milano.
+## Robotics - Project, ay 2021-2022
+
+<em>The objective of this project is to compute the odometry (I), compute the control (II), build a reset service (III), implement the dynamic reconfiguration (IV) and optimize the robot hardware parameters to improve the odometry of an omnidirectional robot. The project shows competence in ROS nodes and services development, in C++ language and in black-box optimization.</em>
+
+<br>
 
 Real Robot                 |  Robot Scheme
 :-------------------------:|:-------------------------:
@@ -73,18 +78,27 @@ omni-robot/
 ```
   $ mv omni-robot <path>/catkin_ws/src
 ```
+- Execute the ROS setup in every new terminal window with:
+```
+  $ source /opt/ros/melodic/setup.bash
+```
 - Go to your own *catkin_ws* folder in the system and recompile everything by doing:
 ```
   $ cd <path>/catkin_ws
   $ source ./devel/setup.bash
   $ catkin_make
 ```
+- Start the ROS core process in a separate terminal with the following line:
+```
+  $ roscore
+```
 - Open a new terminal and launch the robot simulation as:
 ```
   $ cd <path>/catkin_ws
   $ source ./devel/setup.bash
-  $ roslaunch omni-robot omni-robot.launch
+  $ roslaunch omni_robot omni_robot.launch
 ```
+
 ### (I) Compute Odometry
 - Open one terminal and start rviz:
 ```
@@ -96,6 +110,7 @@ omni-robot/
 ```
 - Execute a bag file:
 ```
+  $ cd <path>/catkin_ws/src/omni-robot/bags/
   $ rosbag play <bag_file>.bag
 ```
 ![](img/goal_1_rviz2_mod.gif)
@@ -111,6 +126,7 @@ omni-robot/
 ```
 - Execute a bag file:
 ```
+  $ cd <path>/catkin_ws/src/omni-robot/bags/
   $ rosbag play <bag_file>.bag
 ```
 ![](img/goal_2_plotjuggler_mod.gif)
@@ -122,6 +138,7 @@ omni-robot/
 ```
 - Execute a bag file:
 ```
+  $ cd <path>/catkin_ws/src/omni-robot/bags/
   $ rosbag play <bag_file>.bag
 ```
 - Open another terminal and whenever you want type, for instance x=0, y=0, theta=0:
@@ -141,6 +158,7 @@ omni-robot/
 ```
 - Execute a bag file:
 ```
+  $ cd <path>/catkin_ws/src/omni-robot/bags/
   $ rosbag play <bag_file>.bag
 ```
 ![](img/goal_4_dynreconf_mod.gif)
