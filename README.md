@@ -2,7 +2,14 @@
 Omnidirectional 4-wheels mobile robot odometry implementation in ROS (C++) as "Robotics" course project 2022, Politecnico di Milano.
 ## Robotics - Project, ay 2021-2022
 
-<em>The objective of this project is to compute the odometry (I), compute the control (II), build a reset service (III), implement the dynamic reconfiguration (IV) and optimize the robot hardware parameters to improve the odometry of an omnidirectional robot. The project shows competence in ROS nodes and services development, in C++ language and in black-box optimization.</em>
+<em>The objective of this project is to implement the Odometry subsystem of an omnidirectional robot, in ROS.
+First, the odometry component has been developed in C++, computing the odometry using the appropriate kinematic model of the omnidirectional (Mecanum) drive. The robot linear and angular velocities have been computed from the wheel encoders. The odometry has been computed both with Euler and Runge-Kutta integration methods.
+Second, the wheel control has been computed from the linear and angular velocities (inverse kinematics).
+Third, a C++ service has been added to reset the odometry pose to a specified tuple <x,y,th>.
+Fourth, dynamic reconfiguration has been used to select between the different integration methods.
+Lastly, the robot parameters have been fine-tuned with a Genetic Algorithm based optimizer. After 200 generations, the parameters were accurately tuned.
+The project shows competence in ROS nodes and services development, in C++ language and in black-box optimization.
+</em>
 
 <br>
 
